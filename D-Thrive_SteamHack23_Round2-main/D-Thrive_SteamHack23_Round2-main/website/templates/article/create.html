@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %} Tạo {% endblock %}
+{% block content %}
+<form action="" method="POST">
+    <div style="display: flex; flex-direction: column;">
+        <label style="font-size: 1.4rem; margin-bottom: 8px;" for="link_to_article">Link dẫn tới bài báo:</label>
+        <input class="primary-input" style="margin-bottom: 16px;" type="text" name="link_to_article">
+        <label style="font-size: 1.4rem; margin-bottom: 8px;" for="img_url">URL hình ảnh:</label>
+        <input class="primary-input" style="margin-bottom: 16px;" type="text" name="img_url">
+        <label style="font-size: 1.4rem; margin-bottom: 8px;" for="tags">Tags:</label>
+        <input class="primary-input" style="margin-bottom: 16px;" type="text" name="tags">
+        <label style="font-size: 1.4rem; margin-bottom: 8px;" for="title">Tiêu đề:</label>
+        <input class="primary-input" style="margin-bottom: 16px;" type="text" name="title">
+        <div style="display: flex; justify-content: flex-end; margin-top: 32px;">
+            <button class="primary-btn" type="submit" name="btn" value="create">Tạo</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

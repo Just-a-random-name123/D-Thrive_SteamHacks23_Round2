@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %} Article {% endblock %}
+{% block content %}
+{% for pair in list %}
+<div style="display: flex; flex-direction: row; justify-content: space-around; margin-bottom: 32px;" >
+    <div class="article">
+        <a href="{{ pair.article1[0] }}">    
+            <div>
+                <img src="{{ pair.article1[1] }}" alt="">
+                <p> {{ pair.article1[2] }} </p>
+                <h4> {{ pair.article1[3] }} </h4>
+                <h3> {{ pair.article1[4] }} </h3>
+            </div>
+        </a>
+        {% if user.role == 'admin' %}
+        <div class="btns">
+            <button class="primary-btn" type="submit" name="btn" value="delete"><a href="{{ url_for('article.delete', id=pair.article1[5] ) }}">Xoá</a></button>
+        </div>
+        {% endif %}
+    </div>
+    {% if pair.article2 %}
+    <div class="article">
+        <a href="{{ pair.article2[0] }}" >    
+            <div>
+                <img src="{{ pair.article2[1] }}" alt="">
+                <p> {{ pair.article2[2] }} </p>
+                <h4> {{ pair.article2[3] }} </h4>
+                <h3> {{ pair.article2[4] }} </h3>
+            </div>
+        </a>
+        {% if user.role == 'admin' %}
+        <div class="btns">
+            <button class="primary-btn" type="submit" name="btn" value="delete"><a href="{{ url_for('article.delete', id=pair.article2[5] ) }}">Xoá</a></button>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endfor %}
+{% if user.role == 'admin' %}
+<button class="primary-btn"><a href="{{ url_for('article.create') }}">Tạo Article</a></button>
+{% endif %}
+{% endblock %}
